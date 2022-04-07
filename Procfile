@@ -1,1 +1,1 @@
-web: gunicorn ci-eat-something.wsgi
+web: gunicorn eat-something.wsgi

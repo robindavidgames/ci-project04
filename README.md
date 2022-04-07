@@ -9,7 +9,11 @@ Using User stories to guide development
 
 ![User Stories](/assets/readme_images/user_stories.png)
 
+deployment at the start of the project following I Think Therefore I Blog example.
 
+Create env.py to hold secret keys
+Hook up Heroku and ensure that it is holding my secret key and database URL
+Connect Cloudinary and ensure those setting are also in the Heroku variables
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
