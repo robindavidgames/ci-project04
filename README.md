@@ -1,6 +1,8 @@
+Setup project with the I Think Therefore I Blog example.
+
 Using django. Installed at beginning of project using 
 
-    pip3 install Django==3.2
+    pip3 install Django==3.2 gunicorn
 
 
 Using User stories to guide development
