@@ -1,3 +1,14 @@
+Using django. Installed at beginning of project using 
+
+    pip3 install Django==3.2
+
+
+Using User stories to guide development
+
+![User Stories](/assets/readme_images/user_stories.png)
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome robindavidgames,
