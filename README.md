@@ -9,11 +9,12 @@ Using User stories to guide development
 
 ![User Stories](/assets/readme_images/user_stories.png)
 
-deployment at the start of the project following I Think Therefore I Blog example.
+deployment at the start of the project following I Think Therefore I Blog example. Refer to the [cheatsheet](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit).
 
 Create env.py to hold secret keys
 Hook up Heroku and ensure that it is holding my secret key and database URL
 Connect Cloudinary and ensure those setting are also in the Heroku variables
+In Heroku, connect to the GitPod respository for this project and click deploy for the main branch.
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
