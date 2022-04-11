@@ -16,6 +16,15 @@ Hook up Heroku and ensure that it is holding my secret key and database URL
 Connect Cloudinary and ensure those setting are also in the Heroku variables
 In Heroku, connect to the GitPod respository for this project and click deploy for the main branch.
 
+
+From the I Think Therefore I Blog tutorial, installed Summernote to provide a WYSIWYG editor in Django dashboard. Using 
+
+    pip3 install django-summernote
+
+
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome robindavidgames,
