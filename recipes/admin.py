@@ -16,7 +16,7 @@ class RecipeAdmin(SummernoteModelAdmin):
     list_filter = ('created_on', 'author')
 
     # Add details to the list display.
-    list_display = ('title', 'slug', 'author', 'created_on')
+    list_display = ('title', 'slug', 'author', 'status', 'created_on')
 
     # Add a search field.
     search_fields = ['title', 'content']
