@@ -23,12 +23,18 @@ class Recipe(models.Model):
         )
 
     class Meta:
+        """
+        Sort in revese date order.
+        """
         ordering = ['-created_on']
 
     def __str__(self):
         return self.title
 
     def number_of_likes(self):
+        """
+        Return number of likes.
+        """
         return self.likes.count()
 
 
@@ -46,6 +52,9 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
+        """
+        Sort in date order.
+        """
         ordering = ['created_on']
 
     def __str__(self):
