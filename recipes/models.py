@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField
 # Status options when creating a recipe post.
 STATUS = ((0, "Draft"), (1, "Published"))
 
+
 class Recipe(models.Model):
     """
     Class for the main recipe posts.
