@@ -14,7 +14,7 @@
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
+                {% if "placeholder" in recipe.featured_image.url %}
                 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
                 {% else %}
                 <img src="{{ recipe.featured_image.url }}" width="100%">
@@ -30,7 +30,8 @@
             <div class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text ">{{ recipe.content }}</p>
+                <!-- safe allows HTML in content. -->
+                <p class="card-text ">{{ recipe.content | safe }}</p>
                 <div class="row">
 
                     <div class="col-1">
