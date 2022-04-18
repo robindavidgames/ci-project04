@@ -27,7 +27,9 @@ From the I Think Therefore I Blog tutorial, installed Summernote to provide a WY
     pip3 install django-summernote
 
 
+BUGS
 
+Unable to post comments with django commenting about a null field. Turns out I had mistyped a variable in my model, which I was then not correctly referring to in my view.
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
