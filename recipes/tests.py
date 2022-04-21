@@ -19,8 +19,20 @@ class RecipeModelTests(TestCase):
     @classmethod
 
     def setUp(cls):
-        User.objects.create(username='Robin', email="robin@example.com", password="supersecurePASS11!")
-        Recipe.objects.create(title='Test Recipe Item', author=User.objects.get(id=1), slug="sample-slug")
+        User.objects.create(
+            username='Robin',
+            email="robin@example.com",
+            password="supersecurePASS11!"
+            )
+        Recipe.objects.create(
+            title='Test Recipe Item',
+            author=User.objects.get(id=1),
+            slug="sample-slug",
+            content="<p>This is text <b>content</b> with HTML tags.</p>",
+            featured_image="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-word-hor.7ff44b5b4194.svg",
+            # created_on="",
+            status="0"
+            )
 
     # This test modified from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing#overview
     def test_title_label(self):
@@ -32,6 +44,22 @@ class RecipeModelTests(TestCase):
         example = Recipe.objects.get(id=1)
         field_label = example._meta.get_field('slug').verbose_name
         self.assertEqual(field_label, 'slug')
+
+    def test_content_label(self):
+        example = Recipe.objects.get(id=1)
+        field_label = example._meta.get_field('content').verbose_name
+        self.assertEqual(field_label, 'content')
+
+    def test_featured_image_label(self):
+        # example = Recipe.objects.get(id=1)
+        # field_label = example._meta.get_field('featured_image').verbose_name
+        # self.assertEqual(field_label, 'featured_image')
+        pass
+
+    def test_status_label(self):
+        example = Recipe.objects.get(id=1)
+        field_label = example._meta.get_field('status').verbose_name
+        self.assertEqual(field_label, 'status')
 
     def test_publish_date_in_the_past(self):
         """
