@@ -61,6 +61,22 @@ class RecipeModelTests(TestCase):
         field_label = example._meta.get_field('status').verbose_name
         self.assertEqual(field_label, 'status')
 
+    # This test modified from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing#overview
+    def test_title_max_length(self):
+        example = Recipe.objects.get(id=1)
+        max_length = example._meta.get_field('title').max_length
+        self.assertEqual(max_length, 200)
+
+    def test_slug_max_length(self):
+        example = Recipe.objects.get(id=1)
+        max_length = example._meta.get_field('slug').max_length
+        self.assertEqual(max_length, 200)
+    
+    # def test_get_absolute_url(self):
+    #     author = Author.objects.get(id=1)
+    #     # This will also fail if the urlconf is not defined.
+    #     self.assertEqual(author.get_absolute_url(), '/catalog/author/1')
+
     def test_publish_date_in_the_past(self):
         """
         Returns false if the recipe is posted in the future."
@@ -90,10 +106,6 @@ class RecipeModelTests(TestCase):
         #     self.assertTrue(title_length < 200)
         pass
 
-    # from Hello Django module
-    def test_this_thing_works(self):
-        self.assertEqual(1, 1)
-
     # def test_done_defaults_to_false(self):
     #     item = Item.objects.create(name='Test Todo Item')
     #     self.assertFalse(item.done)
@@ -109,8 +121,17 @@ class ViewTests(TestCase):
     """
 
     def setUp(self):
-        self.user = User.objects.create(username='Robin', email="robin@example.com", password="supersecurePASS11!")
-        self.item = Recipe.objects.create(title='Test Recipe Item', author=self.user, slug="sample-slug")
+        self.user = User.objects.create(
+            username='Robin',
+            email="robin@example.com",
+            password="supersecurePASS11!"
+            )
+        self.item = Recipe.objects.create(
+            title='Test Recipe Item',
+            author=self.user,
+            slug="sample-slug",
+            status=1,
+            )
 
     # def tearDown(self):
     #     Clean up run after every test method.
@@ -122,20 +143,8 @@ class ViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
 
+    # Built with assistance from Tutor Support
     def test_get_recipe_details(self):
-
-        # needs author_id to work.
-        # user = User.objects.create(username='Robin', email="robin@example.com", password="supersecurePASS11!")
-        # item = Recipe.objects.create(title='Test Recipe Item', author=user, slug="sample-slug")
-        # response = self.client.get(f'/{item.slug}')
-        # self.assertEqual(response.status_code, 200)
-        # self.assertTemplateUsed(response, 'recipe_detail.html')
-
-        # user = User.objects.create(username='Robin', email="robin@example.com", password="supersecurePASS11!")
-        # item = Recipe.objects.create(title='Test Recipe Item', author=user, slug="sample-slug")
-            # url = reverse('recipe_detail', kwargs={'slug': self.item.slug})
-        # response = self.client.get(url)
-        # response = self.client.get('/sample-slug', follow=True)
-            # response = self.client.get(url, follow=True)
-            # self.assertEqual(response.status_code, 200)
-        pass
+        url = reverse('recipe_detail', kwargs={'slug': self.item.slug})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
