@@ -97,3 +97,28 @@ class RecipeLike(View):
             recipe.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+class RecipePost(View):
+    def post(self, request, slug, *args, **kwargs):
+        """
+        Allow for submission of a recipe.
+        """
+        recipe_form = RecipeForm(data=request.POST)
+        if recipe_form.is_valid():
+            recipe_form.instance.email = request.user.email
+            recipe_form.instance.name = request.user.username
+            recipe = recipe_form.save(commit=False)
+            recipe.save()
+        else:
+            recipe_form = RecipeForm()
+
+        return render(
+            request,
+            "index.html",
+            {
+                "recipe": recipe,
+                "comments": comments,
+                "comment_form": comment_form,
+                "liked": liked
+            },
+        )
