@@ -27,6 +27,9 @@ From the I Think Therefore I Blog tutorial, installed Summernote to provide a WY
     pip3 install django-summernote
 
 
+Installed Bootstrap using guidance from https://getbootstrap.com/docs/5.1/getting-started/introduction/
+
+
 BUGS
 
 Unable to post comments with django commenting about a null field. Turns out I had mistyped a variable in my model, which I was then not correctly referring to in my view.
