@@ -21,34 +21,22 @@
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <!-- This is the heading text -->
-                    <a class="navbar-brand" href="{% url 'home' %}">Eat Something!</a>
-                    <span>
-                        Good food for the whole family.
-                    </span>
-                </div>
-                <div class="col">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href="{% url 'home' %}">Home</a>
-                        </li>
-                        {% if user.is_authenticated %}
-                        <li class="list-inline-item">
-                            <a href="{% url 'account_logout' %}">Logout</a>
-                        </li>
-                        {% else %}
-                        <li class="list-inline-item">
-                            <a href="{% url 'account_signup' %}">Register</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="{% url 'account_login' %}">Login</a>
-                        </li>
-                        {% endif %}
-                    </ul>
+    <!-- Code adapted from https://getbootstrap.com/docs/5.1/components/navbar/#nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Eat Something!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
