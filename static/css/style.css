@@ -1,14 +1,13 @@
 a { 
     text-decoration: none;
-    color: red; 
+    color: #e63946;
 }
 
-/* Why doesn't this work?? */
+a:hover, .teal {
+    color: #457B9D;
+}
 
-#header-background {
+.header-background {
     background-color: #e63946;
 }
 
-#test {
-    color: blue;
-}
