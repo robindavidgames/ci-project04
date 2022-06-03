@@ -29,6 +29,9 @@ From the I Think Therefore I Blog tutorial, installed Summernote to provide a WY
 
 Installed Bootstrap using guidance from https://getbootstrap.com/docs/5.1/getting-started/introduction/
 
+Using this colour palette from Coolors. https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
+![Colour Palette](/assets/readme_images/colour_palette.png)
+
 
 BUGS
 
