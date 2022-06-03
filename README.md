@@ -37,6 +37,8 @@ BUGS
 
 Unable to post comments with django commenting about a null field. Turns out I had mistyped a variable in my model, which I was then not correctly referring to in my view.
 
+I couldn't get my base.html file to recognise my style.css file. Referring to my own styles did not update the contents of the page.
+
 
 AUTOMATED TESTING
 

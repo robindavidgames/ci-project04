@@ -4,3 +4,7 @@ a {
 }
 
 /* Why doesn't this work?? */
+
+#header-background {
+    background-color: #e63946;
+}
