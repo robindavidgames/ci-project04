@@ -1,6 +1,29 @@
 # Eat Something!
 This project is built with Django, CSS, HTML, Python, and Javascript.
 
+## Features
+
+### Front page
+This shows the various recipes available on the website. Each recipe has a photo and some details, which the user can click into.
+
+### Navigation
+The nav bar always displays at the top of the page and lets the user return home. If they are not logged in, a log in/register option is available.
+
+### Registration
+Users can register new accounts on the website so that they may leave comments and like posts.
+
+### Recipe Page
+This shows the recipe in more detail.
+
+### Recipe Images
+Each recipe can have an image attached, which is used in the recipe preview and on the recipe page as the hero image. If no image is attached to a recipe, a placeholder image is used instead.
+
+### Likes
+Posts can be liked and unlikes by users that are logged in. Posts always show the total amount of likes they have received.
+
+### Comments
+Users that are logged in can leave comments. All users can read comments. Comments must be approved by an administrator before they go live on the webpage.
+
 ## Setup and Deployment
 
 To setup the project, I folled the example in the I Think Therefore I Blog module.
@@ -61,8 +84,33 @@ Bootstrap was applying colours to elements that did not match the colour scheme 
 Guidance for automated testing taken from https://docs.djangoproject.com/en/3.0/intro/tutorial05/
 
 ## Credits
+- The basic structure of the website is inspired by the I Think Therefore I Blog tutorials. Parts of the page logic are also inspired by this and are marked as such in the comments. 
 - All images are Public Domain or Creative Commons.
-- Salad placeholder image: https://www.photosforclass.com/download/pb_2834549
+- Salad placeholder image source: https://www.photosforclass.com/download/pb_2834549
 - Kid Friendly Grilled Skewers
     - Image: https://www.photosforclass.com/download/pb_417994
+    - Text: My own.
+- Bluberry cookies 
+    - Image: https://www.photosforclass.com/download/pb_1835414
+    - Text: My own.
+- Sugar cookies
+    - Image: https://www.photosforclass.com/download/pb_1051884
+    - Text: My own.
+- Pasta
+    - Image: https://www.photosforclass.com/download/pb_527286
+    - Text: My own.
+- Cupcakes
+    - Image: https://www.photosforclass.com/download/pb_2285209
+    - Text: My own.
+- Egg breakfast
+    - Image: https://www.photosforclass.com/download/pb_456351
+    - Text: My own.
+- Pancakes
+    - Image: https://www.photosforclass.com/download/pb_2020863
+    - Text: My own.
+- Pizza
+    - Image: https://www.photosforclass.com/download/pb_2068272
+    - Text: My own.
+- Berries
+    - Image: https://www.photosforclass.com/download/pb_2277
     - Text: My own.
