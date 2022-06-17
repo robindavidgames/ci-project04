@@ -39,6 +39,13 @@ Unable to post comments with django commenting about a null field. Turns out I h
 
 I couldn't get my base.html file to recognise my style.css file. Referring to my own styles did not update the contents of the page. I searched through Stack Overflow, Slack, Student Support and the answer was... I needed to clear my cache!
 
+Bootstrap was applying colours to elements that did not match the colour scheme of my site and attempts to fix this were inelegant. After reading this StackOverflow post https://stackoverflow.com/questions/20721248/how-can-i-override-bootstrap-css-styles, I understood that I could reference the Boostrap class names directly in my style.css file. Thus, I added this piece of code:
+
+    .btn-primary {
+        background-color: red;
+        border: none;
+    }
+
 
 AUTOMATED TESTING
 
