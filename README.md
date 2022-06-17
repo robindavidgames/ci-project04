@@ -51,3 +51,6 @@ AUTOMATED TESTING
 
 Guidance for automated testing taken from https://docs.djangoproject.com/en/3.0/intro/tutorial05/
 
+CREDITS
+All images are Public Domain or Creative Commons.
+Salad placeholder image: https://www.photosforclass.com/download/pb_2834549

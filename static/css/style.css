@@ -11,6 +11,7 @@ a:hover, .teal {
     background-color: #e63946;
 }
 
+/* Overwriting Bootstrap classes. */
 .btn-primary {
     background-color: #e63946;
     border: none;
