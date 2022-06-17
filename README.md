@@ -54,3 +54,6 @@ Guidance for automated testing taken from https://docs.djangoproject.com/en/3.0/
 CREDITS
 All images are Public Domain or Creative Commons.
 Salad placeholder image: https://www.photosforclass.com/download/pb_2834549
+Kid Friendly Grilled Skewers
+    Image: https://www.photosforclass.com/download/pb_417994
+    Text: My own.
