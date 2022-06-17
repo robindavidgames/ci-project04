@@ -24,6 +24,15 @@ Posts can be liked and unlikes by users that are logged in. Posts always show th
 ### Comments
 Users that are logged in can leave comments. All users can read comments. Comments must be approved by an administrator before they go live on the webpage.
 
+### Data Model
+Comments are created dependent on posts. Deleting a post will also delete all associated comments.
+
+### Responsive Design
+Thanks to the use of Bootstrap, the website is fully responsive to mobile devices.
+
+### Footer
+The page footer contains social media links and copyright information.
+
 ## Setup and Deployment
 
 To setup the project, I folled the example in the I Think Therefore I Blog module.

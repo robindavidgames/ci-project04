@@ -12,10 +12,14 @@
             <div class="col">
                 <div class="card shadow-sm">
                     {% if "placeholder" in recipe.featured_image.url %}
-                    <img class="card-img-top"
-                        src="https://res.cloudinary.com/robincloud/image/upload/v1655464161/placeholder_tlebqt.png">
+                    <a href="{% url 'recipe_detail' recipe.slug %}">
+                        <img class="card-img-top"
+                            src="https://res.cloudinary.com/robincloud/image/upload/v1655464161/placeholder_tlebqt.png">
+                    </a>
                     {% else %}
-                    <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                    <a href="{% url 'recipe_detail' recipe.slug %}">
+                        <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                    </a>
                     {% endif %}
                     <div class="card-body">
                         <a href="{% url 'recipe_detail' recipe.slug %}" class="recipe-link">
