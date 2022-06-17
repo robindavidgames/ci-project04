@@ -17,7 +17,6 @@
                     {% else %}
                     <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
                     {% endif %}
-      
                     <div class="card-body">
                         <a href="{% url 'recipe_detail' recipe.slug %}" class="recipe-link">
                             <h2 class="card-title">{{ recipe.title }}</h2>
