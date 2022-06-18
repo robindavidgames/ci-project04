@@ -4,10 +4,20 @@ This project is built with Django, CSS, HTML, Python, and Javascript.
 ## Features
 
 ### Front page
-This shows the various recipes available on the website. Each recipe has a photo and some details, which the user can click into.
+This shows the various recipes available on the website. Each recipe has a photo and some details, which the user can click into. Recipe posts are paginated, showing 6 per page.
+
+![Front Page](/assets/readme_images/frontpage.png)
 
 ### Navigation
 The nav bar always displays at the top of the page and lets the user return home. If they are not logged in, a log in/register option is available.
+
+![Navigation with login button](/assets/readme_images/navlogin.png)
+![Navigation with logout button](/assets/readme_images/navlogout.png)
+
+### Alerts
+An alert pops up when a user logs in or logs out. This alert times out after 3 seconds.
+
+![Logout alert](/assets/readme_images/alert.png)
 
 ### Registration
 Users can register new accounts on the website so that they may leave comments and like posts.
@@ -15,14 +25,28 @@ Users can register new accounts on the website so that they may leave comments a
 ### Recipe Page
 This shows the recipe in more detail.
 
+![Recipe page](/assets/readme_images/recipepage.png)
+
 ### Recipe Images
 Each recipe can have an image attached, which is used in the recipe preview and on the recipe page as the hero image. If no image is attached to a recipe, a placeholder image is used instead.
+
+#### Custom Recipe Image
+
+![A recipe card with a custom image](/assets/readme_images/customimage.png)
+
+#### Default Recipe Image
+
+![A recipe card with the default image](/assets/readme_images/defaultimage.png)
 
 ### Likes
 Posts can be liked and unlikes by users that are logged in. Posts always show the total amount of likes they have received.
 
+![A counter for a post's likes](/assets/readme_images/likes.png)
+
 ### Comments
 Users that are logged in can leave comments. All users can read comments. Comments must be approved by an administrator before they go live on the webpage.
+
+![Example comments](/assets/readme_images/comments.png)
 
 ### Data Model
 Comments are created dependent on posts. Deleting a post will also delete all associated comments.
@@ -30,8 +54,12 @@ Comments are created dependent on posts. Deleting a post will also delete all as
 ### Responsive Design
 Thanks to the use of Bootstrap, the website is fully responsive to mobile devices.
 
+![The page shown on a mobile screen.](/assets/readme_images/responsive.png)
+
 ### Footer
 The page footer contains social media links and copyright information.
+
+![Page footer](/assets/readme_images/footer.png)
 
 ## Setup and Deployment
 
