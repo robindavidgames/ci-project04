@@ -123,3 +123,4 @@ Guidance for automated testing taken from https://docs.djangoproject.com/en/3.0/
 - Berries
     - Image: https://www.photosforclass.com/download/pb_2277
     - Text: My own.
+- Blueberry favicon from https://favicon.io/emoji-favicons/blueberries/

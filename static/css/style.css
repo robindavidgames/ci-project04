@@ -7,6 +7,11 @@ a:hover, .teal {
     color: #457B9D;
 }
 
+.dark-blue {
+    color: #1D3557;
+    font-weight: 600;
+}
+
 .header-background {
     background-color: #e63946;
 }
@@ -31,4 +36,10 @@ a:hover, .teal {
     max-height: 500px;
     object-fit: none;
     margin-bottom: 30px;
+}
+
+.comments {
+    background-color: #f1faee;
+    margin-bottom: 30px;
+    padding: 10px
 }
