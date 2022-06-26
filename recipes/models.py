@@ -25,9 +25,6 @@ class Recipe(models.Model):
     likes = models.ManyToManyField(
         User, related_name="recipe_likes", blank=True
         )
-    # tags = models.ForeignKey(
-    #     RecipeTag, on_delete=models.SET_NULL, related_name="recipe_tag"
-    #     )
 
     class Meta:
         """
@@ -66,11 +63,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}."
-
-# class RecipeTag(models.Model):
-#     """
-#     Class for tags that get applied to recipes.
-#     """
-#     tagname = models.CharField(max_length=100)
-
-# contact us
