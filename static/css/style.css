@@ -27,7 +27,7 @@ a:hover, .teal {
     background-color: #1D3557;
 }
 
-.blog-post-title {
+.blog-post-title, .title-spacing {
     margin-top: 30px;
 }
 
