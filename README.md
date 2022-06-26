@@ -115,6 +115,15 @@ Bootstrap was applying colours to elements that did not match the colour scheme 
         border: none;
     }
 
+Login, Registration, Logout pages, etc, were using an ugly unstyled page, which didn't fit the wider site styling. Upon closer inspection, I noticed that the templates created by AllAuth used this line:
+
+    {% extends "account/base.html" %}
+
+which simply needed to be changed to:
+
+    {% extends "base.html" %}
+
+Upon which I could begin to style them as normal, with bootstrap, CSS, etc.
 
 ## Automated Testing
 
