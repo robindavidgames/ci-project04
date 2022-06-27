@@ -104,10 +104,13 @@ I used User stories to guide development
 
 ## Bugs
 
-Unable to post comments with django commenting about a null field. Turns out I had mistyped a variable in my model, which I was then not correctly referring to in my view.
+### Incorrect Model Variables
+Unable to post comments with django reporting an error about a null field. Turns out I had mistyped a variable in my model, which I was then not correctly referring to in my view.
 
+### Custom CSS Not Working
 I couldn't get my base.html file to recognise my style.css file. Referring to my own styles did not update the contents of the page. I searched through Stack Overflow, Slack, Student Support and the answer was... I needed to clear my cache!
 
+### Editing Bootstrap Classes in CSS
 Bootstrap was applying colours to elements that did not match the colour scheme of my site and attempts to fix this were inelegant. After reading this StackOverflow post https://stackoverflow.com/questions/20721248/how-can-i-override-bootstrap-css-styles, I understood that I could reference the Boostrap class names directly in my style.css file. Thus, I added this piece of code:
 
     .btn-primary {
@@ -115,7 +118,12 @@ Bootstrap was applying colours to elements that did not match the colour scheme 
         border: none;
     }
 
-Login, Registration, Logout pages, etc, were using an ugly unstyled page, which didn't fit the wider site styling. Upon closer inspection, I noticed that the templates created by AllAuth used this line:
+### Unstyled AllAuth Pages
+Login, Registration, Logout pages, etc, were using an ugly unstyled page, which didn't fit the wider site styling. 
+
+![Unstyled sign-out page.](/assets/readme_images/singoutbroken.png)
+
+Upon closer inspection, I noticed that the templates created by AllAuth used this line:
 
     {% extends "account/base.html" %}
 
@@ -124,6 +132,12 @@ which simply needed to be changed to:
     {% extends "base.html" %}
 
 Upon which I could begin to style them as normal, with bootstrap, CSS, etc.
+
+![Styled sign-out page.](/assets/readme_images/singoutfixed2.png)
+
+![Styled sign-out page.](/assets/readme_images/singoutfixed1.png)
+
+![Styled sign-out page.](/assets/readme_images/singoutfixed3.png)
 
 ## Automated Testing
 
