@@ -154,6 +154,16 @@ Upon which I could begin to style them as normal, with bootstrap, CSS, etc.
 
 ![Styled sign-out page.](/assets/readme_images/singoutfixed3.png)
 
+### Deployment Errors
+
+#### Incorrect Config Vars
+
+When the project was finished, I found that the deployed site didn't work. After talking with Student Support and looking in the Heroku logs, we discovered a spelling mistake in my Heroku config vars!
+
+#### Broken Static Files
+
+On the deployed site, I noticed that my static files were no longer working - my CSS file and favicon.
+
 ## Validator Testing
 
 - HTML validator
