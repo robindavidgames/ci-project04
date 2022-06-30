@@ -130,9 +130,6 @@ class RecipePost(View):
             request,
             "index.html",
             {
-                "recipe": recipe,
-                "comments": comments,
-                "comment_form": comment_form,
-                "liked": liked
+                "recipe_form": recipe_form,
             },
         )
