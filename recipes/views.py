@@ -119,8 +119,7 @@ class RecipePost(View):
         """
         recipe_form = RecipeForm(data=request.POST)
         if recipe_form.is_valid():
-            recipe_form.instance.email = request.user.email
-            recipe_form.instance.name = request.user.username
+            recipe_form.instance.author = request.user
             recipe = recipe_form.save(commit=False)
             recipe.save()
         else:
