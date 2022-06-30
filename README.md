@@ -222,7 +222,8 @@ I installed Bootstrap using guidance from https://getbootstrap.com/docs/5.1/gett
 - favicon.io
 
 ## Credits
-- The basic structure of the website is inspired by the I Think Therefore I Blog tutorials. Parts of the page logic are also inspired by this and are marked as such in the comments. 
+- The basic structure of the website is inspired by the I Think Therefore I Blog tutorials. Parts of the page logic are also inspired by this and are marked as such in the comments.
+- Guidance for working with forms and CRUD functionality from: https://docs.djangoproject.com/en/4.0/topics/forms/
 - All images are Public Domain or Creative Commons.
 - Salad placeholder image source: https://www.photosforclass.com/download/pb_2834549
 - Kid Friendly Grilled Skewers
