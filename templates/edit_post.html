@@ -9,7 +9,7 @@
     <div class="container">
         <div class="card-body">
             {% if user.is_authenticated %}
-            <h3>Post a New Recipe:</h3>
+            <h3>Edit Your Recipe:</h3>
             <p>Posting as: {{ user.username }}</p>
             <form method="post" style="margin-top: 1.3em;">
                 {{ recipe_form | crispy }}
@@ -17,7 +17,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             {% else %}
-            <p>You must be logged in to post a new recipe.</p>
+            <p>You must be logged in to edit a recipe.</p>
             {% endif %}
         </div>
     </div>
