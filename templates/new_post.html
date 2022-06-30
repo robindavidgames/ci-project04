@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<!-- content goes here. -->
+
+<div class="masthead">
+    <div class="container">
+        <!-- <div class="col-md-4 card mb-4 mt-3 "> -->
+            <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+                <h3>Post a new Recipe:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ recipe_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                {% else %}
+                <p>You must be logged in to post a new recipe.</p>
+                {% endif %}
+                {% endif %}
+            </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+
+{% endblock content %}

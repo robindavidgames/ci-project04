@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm
 
 
 class RecipeList(generic.ListView):
@@ -98,8 +98,22 @@ class RecipeLike(View):
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
+
 class RecipePost(View):
-    def post(self, request, slug, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        """
+        Get the post recipe form
+        """
+
+        return render(
+            request,
+            "new_post.html",
+            {
+                "recipe_form": RecipeForm()
+            },
+        )
+
+    def post(self, request, *args, **kwargs):
         """
         Allow for submission of a recipe.
         """

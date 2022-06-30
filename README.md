@@ -99,6 +99,8 @@ I used User stories to guide development
 - The design is responsive to screen size.
 - The site has been tested on multiple browers (Firefox and Chrome) and multiple mobile platforms (Android and iOS).
 
+INSERT MARKDOWN TABLE TO MANUAL TESTING
+
 ### Automated Testing
 
 I created some automated tests for the project. Guidance for automated testing was taken from the [Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial05/) and further assistance was found in Tutor Support.
@@ -116,6 +118,13 @@ The command to run automated tests is:
     python3 manage.py test recipes
 
 ![Output of Automated Testing.](/assets/readme_images/automatedtesting2.png)
+
+### Validator Testing
+
+- HTML validator
+- CSS validator
+- JS Hint
+- Lighthouse
 
 ## Bugs
 
@@ -136,7 +145,7 @@ Bootstrap was applying colours to elements that did not match the colour scheme 
 ### Unstyled AllAuth Pages
 Login, Registration, Logout pages, etc, were using an ugly unstyled page, which didn't fit the wider site styling. 
 
-![Unstyled sign-out page.](/assets/readme_images/singoutbroken.png)
+![Unstyled sign-out page.](/assets/readme_images/signoutbroken.png)
 
 Upon closer inspection, I noticed that the templates created by AllAuth used this line:
 
@@ -148,11 +157,11 @@ which simply needed to be changed to:
 
 Upon which I could begin to style them as normal, with bootstrap, CSS, etc.
 
-![Styled sign-out page.](/assets/readme_images/singoutfixed2.png)
+![Styled sign-out page.](/assets/readme_images/signoutfixed2.png)
 
-![Styled sign-out page.](/assets/readme_images/singoutfixed1.png)
+![Styled sign-out page.](/assets/readme_images/signoutfixed1.png)
 
-![Styled sign-out page.](/assets/readme_images/singoutfixed3.png)
+![Styled sign-out page.](/assets/readme_images/signoutfixed3.png)
 
 ### Deployment Errors
 
@@ -163,13 +172,6 @@ When the project was finished, I found that the deployed site didn't work. After
 #### Broken Static Files
 
 On the deployed site, I noticed that my static files were no longer working - my CSS file and favicon.
-
-## Validator Testing
-
-- HTML validator
-- CSS validator
-- JS Hint
-- Lighthouse
 
 ## Setup and Deployment
 
