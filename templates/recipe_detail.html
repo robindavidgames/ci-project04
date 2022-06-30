@@ -11,14 +11,22 @@
         <article class="blog-post">
             <!-- Post title. -->
             <h1 class="blog-post-title">{{ recipe.title }}</h1>
+            
             <!-- Post details. -->
             <p class="blog-post-meta">Posted by {{ recipe.author }} on {{ recipe.created_on }}</p>
+            
+            <!-- Allow the user to edit recipe, if they are the author -->
+            {% if user == recipe.author %}
+            <p class="blog-post-meta"><a href="{% url 'recipe_post' %}">Author Tool: Edit this Recipe</a></p>
+            {% endif %}
+            
             <!-- Image, depending on if one is uploaded. -->
             {% if "placeholder" in recipe.featured_image.url %}
             <img src="https://res.cloudinary.com/robincloud/image/upload/v1655464161/placeholder_tlebqt.png" class="recipe-page-image">
             {% else %}
             <img src=" {{ recipe.featured_image.url }}" class="recipe-page-image">
             {% endif %}
+            
             <!-- Content of the recipe. -->
             {{ recipe.content | safe }}
             <div class="row">
