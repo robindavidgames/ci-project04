@@ -135,21 +135,18 @@ class RecipePost(View):
 
 
 class RecipeEdit(View):
-    # model = Recipe()
-    # template_name = "edit_post.html"
-    # fields = ['title', 'content', 'featured_image', 'excerpt']
 
     def get(self, request, slug, *args, **kwargs):
         """
-        Get the post recipe form
+        Get the post recipe form, prefilled with existing content.
         """
         # Some guidance from https://stackoverflow.com/questions/53075940/how-to-pre-populate-django-modelform-fields
-        # get_title = request.session.get(Recipe.title)
-        recipe = get_object_or_404(Recipe, slug=slug)
-        get_title = recipe.title
-        get_slug = recipe.slug
-        get_content = recipe.content
-        get_excerpt = recipe.excerpt
+        recipe_edit = get_object_or_404(Recipe, slug=slug)
+        get_title = recipe_edit.title
+        get_slug = recipe_edit.slug
+        get_image = recipe_edit.featured_image
+        get_content = recipe_edit.content
+        get_excerpt = recipe_edit.excerpt
 
         return render(
             request,
@@ -159,6 +156,7 @@ class RecipeEdit(View):
                     initial={
                         'title': get_title,
                         'slug': get_slug,
+                        'featured_image': get_image,
                         'content': get_content,
                         'excerpt': get_excerpt,
                     }
@@ -168,7 +166,7 @@ class RecipeEdit(View):
 
     def post(self, request, *args, **kwargs):
         """
-        Allow for submission of a recipe.
+        Allow for submission of the updated recipe.
         """
         recipe_form = RecipeForm(data=request.POST)
         if recipe_form.is_valid():

@@ -17,7 +17,7 @@
             
             <!-- Allow the user to edit recipe, if they are the author -->
             {% if user == recipe.author %}
-            <p class="blog-post-meta"><a href="{% url 'recipe_edit' recipe.slug %}">Author Tool: Edit this Recipe</a></p>
+            <p class="blog-post-meta">Author Tools: <a href="{% url 'recipe_edit' recipe.slug %}">Edit this Recipe</a> | <a href="{% url 'recipe_edit' recipe.slug %}">Delete this Recipe</a></p>
             {% endif %}
             
             <!-- Image, depending on if one is uploaded. -->
@@ -29,6 +29,8 @@
             
             <!-- Content of the recipe. -->
             {{ recipe.content | safe }}
+
+            <!-- Likes and Comment Counter -->
             <div class="row">
                 <!-- Likes -->
                 <div class="col-1">
@@ -57,6 +59,7 @@
                 </div>
             </div>
         </article>
+        
         <!-- Comments. Modified from I Think Therefore I Blog -->
         <div class="row">
             <div class="col-md-8 card mb-4 mt-3 ">
