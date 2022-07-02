@@ -135,6 +135,10 @@ class RecipePost(View):
 
 
 class RecipeEdit(View):
+    # model = Recipe()
+    # template_name = "edit_post.html"
+    # fields = ['title', 'content', 'featured_image', 'excerpt']
+
     def get(self, request, slug, *args, **kwargs):
         """
         Get the post recipe form
@@ -142,9 +146,10 @@ class RecipeEdit(View):
         # Some guidance from https://stackoverflow.com/questions/53075940/how-to-pre-populate-django-modelform-fields
         # get_title = request.session.get(Recipe.title)
         recipe = get_object_or_404(Recipe, slug=slug)
-        get_title = "Sample title"
-        get_slug = Recipe.slug
+        get_title = recipe.title
+        get_slug = recipe.slug
         get_content = recipe.content
+        get_excerpt = recipe.excerpt
 
         return render(
             request,
@@ -155,6 +160,7 @@ class RecipeEdit(View):
                         'title': get_title,
                         'slug': get_slug,
                         'content': get_content,
+                        'excerpt': get_excerpt,
                     }
                 )
             },
