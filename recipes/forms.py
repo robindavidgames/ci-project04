@@ -12,3 +12,8 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ('title', 'slug', 'content', 'featured_image', 'excerpt',)
+
+class RecipeUpdate(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ('title', 'slug', 'content', 'featured_image', 'excerpt',)

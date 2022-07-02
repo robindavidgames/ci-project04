@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
-from .forms import CommentForm, RecipeForm
+from .forms import CommentForm, RecipeForm, RecipeUpdate
 
 
 class RecipeList(generic.ListView):
@@ -152,7 +152,7 @@ class RecipeEdit(View):
             request,
             "edit_post.html",
             {
-                "recipe_form": RecipeForm(
+                "recipe_form": RecipeUpdate(
                     initial={
                         'title': get_title,
                         'slug': get_slug,
@@ -168,13 +168,19 @@ class RecipeEdit(View):
         """
         Allow for submission of the updated recipe.
         """
-        recipe_form = RecipeForm(data=request.POST)
+        recipe_form = RecipeUpdate(data=request.POST)
         if recipe_form.is_valid():
             recipe_form.instance.author = request.user
             recipe = recipe_form.save(commit=False)
             recipe.save()
+
         else:
-            recipe_form = RecipeForm()
+            recipe_form = RecipeUpdate()
+
+        # recipe.objects.update_or_create(slug=recipe_form.instance.slug, 
+        #     defaults={     
+        #     }
+        # )
 
         return render(
             request,
@@ -183,3 +189,35 @@ class RecipeEdit(View):
                 "recipe_form": recipe_form,
             },
         )
+
+class RecipeDelete(View):
+    # model = Recipe
+    # template_name = 'delete_post.html'
+
+    def get(self, request, slug, *args, **kwargs):
+        """
+        Delete verification page.
+        """
+
+        # recipe_delete = get_object_or_404(Recipe, slug=slug)
+        # get_title = recipe_delete.title
+        # get_slug = recipe_delete.slug
+
+        return render(
+            request,
+            "delete_post.html",
+            # {
+            #     "title": get_title,
+            #     "slug": get_slug
+            # },
+        )
+    
+    def post(self, request, *args, **kwargs):
+        """
+        Delete post.
+        """
+
+        recipe_delete = get_object_or_404(Recipe, slug=slug)
+        get_slug = recipe_delete.slug
+
+        Recipe.objects.filter(slug=get_slug).delete()

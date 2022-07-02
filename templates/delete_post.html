@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<!-- content goes here. -->
+
+<div class="masthead">
+    <div class="container">
+        <div class="card-body">
+            <h3>Delete Recipe</h3>
+            <p>Are you sure you want to delete your recipe?</p>
+            <form method="POST" style="margin-top: 1.3em;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
