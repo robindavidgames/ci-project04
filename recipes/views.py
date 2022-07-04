@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
-from .models import Recipe
+from .models import Recipe, User
 from .forms import CommentForm, RecipeForm, RecipeUpdate
 
 
@@ -134,62 +135,73 @@ class RecipePost(View):
         )
 
 
-class RecipeEdit(View):
+# Created with help from Tutor Support.
+class EditRecipe(UpdateView):
+    model = Recipe
+    form_class = RecipeForm
+    template_name = 'edit_post.html'
+    success_url = '/'
 
-    def get(self, request, slug, *args, **kwargs):
-        """
-        Get the post recipe form, prefilled with existing content.
-        """
-        # Some guidance from https://stackoverflow.com/questions/53075940/how-to-pre-populate-django-modelform-fields
-        recipe_edit = get_object_or_404(Recipe, slug=slug)
-        get_title = recipe_edit.title
-        get_slug = recipe_edit.slug
-        get_image = recipe_edit.featured_image
-        get_content = recipe_edit.content
-        get_excerpt = recipe_edit.excerpt
 
-        return render(
-            request,
-            "edit_post.html",
-            {
-                "recipe_form": RecipeUpdate(
-                    initial={
-                        'title': get_title,
-                        'slug': get_slug,
-                        'featured_image': get_image,
-                        'content': get_content,
-                        'excerpt': get_excerpt,
-                    }
-                )
-            },
-        )
-
-    def post(self, request, *args, **kwargs):
-        """
-        Allow for submission of the updated recipe.
-        """
-        recipe_form = RecipeUpdate(data=request.POST)
-        if recipe_form.is_valid():
-            recipe_form.instance.author = request.user
-            recipe = recipe_form.save(commit=False)
-            recipe.save()
-
-        else:
-            recipe_form = RecipeUpdate()
-
-        # recipe.objects.update_or_create(slug=recipe_form.instance.slug, 
-        #     defaults={     
-        #     }
-        # )
-
-        return render(
-            request,
-            "index.html",
-            {
-                "recipe_form": recipe_form,
-            },
-        )
-
+# class RecipeEdit(View):
+# 
+    # def get(self, request, slug, *args, **kwargs):
+    #     """
+    #     Get the post recipe form, prefilled with existing content.
+    #     """
+    #     # Some guidance from
+    #     # https://stackoverflow.com/questions/53075940/how-to-pre-populate-django-modelform-fields
+    #     recipe_edit = get_object_or_404(Recipe, slug=slug)
+    #     get_title = recipe_edit.title
+    #     get_slug = recipe_edit.slug
+    #     get_image = recipe_edit.featured_image
+    #     get_content = recipe_edit.content
+    #     get_excerpt = recipe_edit.excerpt
+# 
+    #     return render(
+    #         request,
+    #         "edit_post.html",
+    #         {
+    #             "recipe_form": RecipeUpdate(
+    #                 initial={
+    #                     'title': get_title,
+    #                     'slug': get_slug,
+    #                     'featured_image': get_image,
+    #                     'content': get_content,
+    #                     'excerpt': get_excerpt,
+    #                 }
+    #             )
+    #         },
+    #     )
+# 
+    # def post(self, request, *args, **kwargs):
+    #     """
+    #     Allow for submission of the updated recipe.
+    #     """
+    #     recipe_form = RecipeUpdate(data=request.POST)
+    #     print(recipe_form.errors)
+    #     if recipe_form.is_valid():
+    #         recipe = recipe_form.save(commit=False)
+    #         recipe.author = User.objects.get(username=request.user.username)
+    #         recipe.save()
+# 
+    #     else:
+    #         recipe_form = RecipeUpdate()
+# 
+    #     # recipe.objects.update_or_create(slug=recipe_form.instance.slug,
+    #     #     defaults={   
+    #     #     }
+    #     # )
+# 
+    #     return render(
+    #         request,
+    #         "index.html",
+    #         {
+    #             "recipe_form": recipe_form,
+    #         },
+    #     )
+# 
+# 
 class RecipeDelete(View):
     # model = Recipe
     # template_name = 'delete_post.html'
@@ -211,7 +223,7 @@ class RecipeDelete(View):
             #     "slug": get_slug
             # },
         )
-    
+
     def post(self, request, *args, **kwargs):
         """
         Delete post.

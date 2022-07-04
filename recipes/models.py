@@ -63,3 +63,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}."
+
+
+# class UserProfile(models.Model):
+#     """
+#     Class for user profile.
+#     """
+#     username = models.ForeignKey(
+#         User, on_delete=models.CASCADE, related_name="user_profile"
+#         )
+#     liked_posts = models.ManyToManyField(
+#         Recipe, related_name="user_likes", blank=True
+#         )
+#     commented_posts = models.ManyToManyField(
+#         Recipe, related_name="user_likes", blank=True
+#         )
