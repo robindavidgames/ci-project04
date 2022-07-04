@@ -21,10 +21,10 @@ class RecipeForm(forms.ModelForm):
         fields = ('title', 'slug', 'content', 'featured_image', 'excerpt',)
 
 
-class RecipeUpdate(forms.ModelForm):
-    """
-    Form for editing a recipe post. (currently the same, but may remove slug)
-    """
-    class Meta:
-        model = Recipe
-        fields = ('title', 'slug', 'content', 'featured_image', 'excerpt',)
+# class RecipeUpdate(forms.ModelForm):
+#     """
+#     Form for editing a recipe post. (currently the same, but may remove slug)
+#     """
+#     class Meta:
+#         model = Recipe
+#         fields = ('title', 'slug', 'content', 'featured_image', 'excerpt',)

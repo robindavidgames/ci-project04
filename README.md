@@ -64,6 +64,19 @@ Comments must be approved by an administrator before they go live on the webpage
 ### Data Model
 Comments are created dependent on posts. Deleting a post will also delete all associated comments.
 
+### CRUD Functionality
+#### Create
+Recipes can be created through a webform. However, upon submission, they must be set to "Published" by the superuser.
+
+#### Read
+As already documented.
+
+#### Update
+Recipes can be updated through a webform, provided the user that is logged in is the original author of that recipe. The link to update appears on any recipe page that belongs to the logged in user.
+
+#### Delete
+Recipes can be deleted through a webform, provided the user that is logged in is the original author of that recipe. The link to delete appears on any recipe page that belongs to the logged in user.
+
 ### Responsive Design
 Thanks to the use of Bootstrap, the website is fully responsive to mobile devices.
 
@@ -172,6 +185,20 @@ When the project was finished, I found that the deployed site didn't work. After
 #### Broken Static Files
 
 On the deployed site, I noticed that my static files were no longer working - my CSS file and favicon.
+
+### Updating and Deleting Posts
+
+When creating code to update a recipe, I create a class view with GET and POST methods, in order to create a form, prepopulate it with existing content, and then allow the user to submit the corrections. However, the form continually didn't work. Upon submission, it would check is_valid, and the check would fail because the slug needed to be unique. However, the slug was never unique because the original recipe that is being edited has the same slug. This bug persisted for some time until I went to student support, who were about to show me the UpdateView class, as explained [here](https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/).
+
+This allowed me to reduce 60 lines of buggy code to:
+
+    class EditRecipe(UpdateView):
+        model = Recipe
+        form_class = RecipeForm
+        template_name = 'edit_post.html'
+        success_url = '/'
+
+It also allowed me to use DeleteView to achieve something similar with the code for deleting a recipe.
 
 ## Setup and Deployment
 
