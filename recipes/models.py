@@ -65,16 +65,33 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}."
 
 
-# class UserProfile(models.Model):
-#     """
-#     Class for user profile.
-#     """
-#     username = models.ForeignKey(
-#         User, on_delete=models.CASCADE, related_name="user_profile"
-#         )
-#     liked_posts = models.ManyToManyField(
-#         Recipe, related_name="user_likes", blank=True
-#         )
-#     commented_posts = models.ManyToManyField(
-#         Recipe, related_name="user_likes", blank=True
-#         )
+class UserProfile(models.Model):
+    """
+    Class for user profile.
+    """
+    username = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_profile"
+        )
+    # liked_posts = models.ForeignKey(
+    #     Recipe,
+    #     on_delete=models.CASCADE,
+    #     related_name="user_likes",
+    #     blank=True
+    #     )
+    # commented_posts = models.ForeignKey(
+    #     Recipe,
+    #     on_delete=models.CASCADE,
+    #     related_name="user_likes",
+    #     blank=True
+    #     )
+    created_posts = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name="user_posts",
+        blank=True
+        )
+
+    def __str__(self):
+        return self.username

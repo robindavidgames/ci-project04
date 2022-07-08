@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Recipe, Comment
+from .models import Recipe, Comment, UserProfile
 
 
 @admin.register(Recipe)
@@ -39,3 +39,6 @@ class CommentAdmin(admin.ModelAdmin):
         Allows admin to approve comments in admin panel.
         """
         queryset.update(approved=True)
+
+
+admin.site.register(UserProfile)
