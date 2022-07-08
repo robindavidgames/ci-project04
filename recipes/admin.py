@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Recipe, Comment, UserProfile
+from .models import Recipe, Comment, RecipeTags
 
 
 @admin.register(Recipe)
@@ -41,4 +41,6 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-admin.site.register(UserProfile)
+# admin.site.register(UserProfile)
+
+admin.site.register(RecipeTags)
