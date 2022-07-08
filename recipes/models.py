@@ -93,7 +93,7 @@ class Comment(models.Model):
     #     return self.username
 
 
-class RecipeTags(models.Model):
+class RecipeTag(models.Model):
     tag_name = models.CharField(
         max_length=100,
         unique=True
@@ -101,3 +101,6 @@ class RecipeTags(models.Model):
     recipes = models.ManyToManyField(
         Recipe
         )
+    
+    def __str__(self):
+        return self.tag_name

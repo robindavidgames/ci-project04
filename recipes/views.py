@@ -34,6 +34,10 @@ class RecipeDetail(View):
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        # Tags
+        # tagset = RecipeTags.objects.filter(status=1)
+        # tag = get_object_or_404(tagset, tag_name=tag_name)
+
         return render(
             request,
             "recipe_detail.html",
