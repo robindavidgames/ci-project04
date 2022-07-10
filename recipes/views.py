@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, get_list_or_404
 from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
-from .models import Recipe, User
+from .models import Recipe, User, RecipeTag
 from .forms import CommentForm, RecipeForm
 
 
@@ -33,10 +33,9 @@ class RecipeDetail(View):
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
-
-        # Tags
-        # tagset = RecipeTags.objects.filter(status=1)
-        # tag = get_object_or_404(tagset, tag_name=tag_name)
+        # This line and understanding of many-to-many relationships with guidance from Tutor Support.
+        tags = recipe.recipetag_set.all()
+        print(tags)
 
         return render(
             request,
@@ -46,7 +45,8 @@ class RecipeDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "tags": tags
             },
         )
 
@@ -145,6 +145,7 @@ class EditRecipe(UpdateView):
     form_class = RecipeForm
     template_name = 'edit_post.html'
     success_url = '/'
+
 
 class RecipeDelete(DeleteView):
     model = Recipe

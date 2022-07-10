@@ -57,10 +57,16 @@
                         {{ total_comments }}</strong>
                     {% endwith %}
                 </div>
-                <!-- This is the tags. Need to update the views to have something to refer to here. -->
-                <!-- <div class="col-1">
-                    <strong class="text-secondary">Tags: {{ RecipeTags.tag_name }}</strong>
-                </div> -->
+                
+                <!-- Recipe tags -->
+                <div class="col-8">
+                    <strong class="text-secondary">Tags: 
+                    <!-- Iterate through each tag in tags. -->
+                    {% for tag in tags %}
+                    {{ tag }}
+                    {% endfor %}
+                    </strong>
+                </div>
             </div>
         </article>
         
