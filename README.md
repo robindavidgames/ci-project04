@@ -11,38 +11,38 @@ Screenshot from ami.responsivedesign.is
 
 ## Table of Contents
 
-- Features
-    - Front Page
-    - Navigation
-    - Alerts
-    - Registration
-    - Recipe Page
-    - Recipe Images
-        - Custom Recipe Image
-        - Default Recipe Image
-    - Likes
-    - Comments
-    - Tags
-    - Footer
-    - Comment Moderation
-    - Data Model
-    - CRUD Functionality
-        - Create
-        - Read
-        - Update
-        - Delete
-    - Responsive Design
-- Design
-- Agile Development/User Stories
-- Accessibility
-- Testing
-    - Manual Testing
-    - Automated Testing
-    - Validator Testing
-- Bugs
-- Setup and Deployment
-- Technologies Used
-- Credits
+- [Features](#features)
+    - [Front Page](#front-page)
+    - [Navigation](#navigation)
+    - [Alerts](#alerts)
+    - [Registration](#registration)
+    - [Recipe Page](#recipe-page)
+    - [Recipe Images](#recipe-images)
+        - [Custom Recipe Image](#custom-recipe-image)
+        - [Default Recipe Image](#default-recipe-image)
+    - [Likes](#likes)
+    - [Comments](#comments)
+    - [Tags](#tags)
+    - [Footer](#footer)
+    - [Comment Moderation](#comment-moderation)
+    - [Data Model](#data-model)
+    - [CRUD Functionality](#crud-functionality)
+        - [Create](#create)
+        - [Read](#read)
+        - [Update](#update)
+        - [Delete](#delete)
+    - [Responsive Design](#responsive-design)
+- [Design](#design)
+- [Agile Development/User Stories](#agile-development--user-stories)
+- [Accessibility](#accessibility)
+- [Testing](#testing)
+    - [Manual Testing](#manual-testing)
+    - [Automated Testing](#automated-testing)
+    - [Validator Testing](#validator-testing)
+- [Bugs](#bugs)
+- [Setup and Deployment](#setup-and-deployment)
+- [Technologies Used](#technologies-used)
+- [Credits](#credits)
 
 ## Features
 
