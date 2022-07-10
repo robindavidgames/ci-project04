@@ -32,6 +32,7 @@
 
             <!-- Likes and Comment Counter -->
             <div class="row">
+                
                 <!-- Likes -->
                 <div class="col-1">
                     <strong>
@@ -50,6 +51,7 @@
                         <span class="text-secondary">{{ recipe.number_of_likes }}</span>
                     </strong>
                 </div>
+
                 <!-- Number of comments -->
                 <div class="col-1">
                     {% with comments.count as total_comments %}
@@ -67,6 +69,7 @@
                     {% endfor %}
                     </strong>
                 </div>
+
             </div>
         </article>
         

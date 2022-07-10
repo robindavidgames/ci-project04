@@ -87,6 +87,13 @@ The page footer contains social media links and copyright information.
 
 ![Page footer](/assets/readme_images/footer.png)
 
+### Tags
+Recipe tags are implemented with a custom many-to-many model. There are many tags and each tag can be applied to many recipes. Tags are called in the RecipeDetail view and then in the recipe_detail.html template. As there is the possibility of many tags, they must be iterated through in the template itself:
+
+    {% for tag in tags %}
+    {{ tag }}
+    {% endfor %}
+
 ## Design
 
 - I have used [this colour palette from Coolors](https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557) to ensure consistency across the site and related components.
