@@ -62,12 +62,13 @@
                 
                 <!-- Recipe tags -->
                 <div class="col-8">
-                    <strong class="text-secondary">Tags: 
+                    <strong class="text-secondary">Tags: </strong>
                     <!-- Iterate through each tag in tags. -->
-                    {% for tag in tags %}
-                    {{ tag }}
-                    {% endfor %}
-                    </strong>
+                    <span>
+                        {% for tag in tags %}
+                        {{ tag }};
+                        {% endfor %}
+                    </span>
                 </div>
 
             </div>

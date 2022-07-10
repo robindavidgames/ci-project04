@@ -12,6 +12,10 @@ a:hover, .teal {
     font-weight: 600;
 }
 
+.red {
+    color: #e63946;
+}
+
 .header-background {
     background-color: #e63946;
 }

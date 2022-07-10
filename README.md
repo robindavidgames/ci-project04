@@ -9,6 +9,41 @@ This project is built with Django, CSS, HTML, Python, and Javascript. It uses Dj
 **ADD IMAGE OF RESPONSIVE SITE**
 Screenshot from ami.responsivedesign.is
 
+## Table of Contents
+
+- Features
+    - Front Page
+    - Navigation
+    - Alerts
+    - Registration
+    - Recipe Page
+    - Recipe Images
+        - Custom Recipe Image
+        - Default Recipe Image
+    - Likes
+    - Comments
+    - Tags
+    - Footer
+    - Comment Moderation
+    - Data Model
+    - CRUD Functionality
+        - Create
+        - Read
+        - Update
+        - Delete
+    - Responsive Design
+- Design
+- Agile Development/User Stories
+- Accessibility
+- Testing
+    - Manual Testing
+    - Automated Testing
+    - Validator Testing
+- Bugs
+- Setup and Deployment
+- Technologies Used
+- Credits
+
 ## Features
 
 ### Front page
@@ -31,7 +66,7 @@ An alert pops up when a user logs in or logs out. This alert times out after 3 s
 Users can register new accounts on the website so that they may leave comments and like posts.
 
 ### Recipe Page
-This shows the recipe in more detail.
+This shows the recipe in more detail. Note that if the user is logged in and is the author of a given recipe, they have additional options to edit and delete the recipe.
 
 ![Recipe page](/assets/readme_images/recipepage.png)
 
@@ -47,7 +82,7 @@ Each recipe can have an image attached, which is used in the recipe preview and 
 ![A recipe card with the default image](/assets/readme_images/defaultimage.png)
 
 ### Likes
-Posts can be liked and unlikes by users that are logged in. Posts always show the total amount of likes they have received.
+Posts can be liked and unliked by users that are logged in. Posts always show the total amount of likes they have received.
 
 ![A counter for a post's likes.](/assets/readme_images/likes.png)
 
@@ -56,20 +91,42 @@ Users that are logged in can leave comments. All users can read comments.
 
 ![Example comments.](/assets/readme_images/comments.png)
 
+### Footer
+The page footer contains social media links and copyright information.
+
+![Page footer](/assets/readme_images/footer.png)
+
+### <a name="tags"></a>Recipe Tags
+Recipe tags are implemented with a custom many-to-many model. There are many tags and each tag can be applied to many recipes. Tags are called in the RecipeDetail view and then in the recipe_detail.html template. As there is the possibility of many tags, they must be iterated through in the template itself:
+
+    {% for tag in tags %}
+    {{ tag }}
+    {% endfor %}
+
+Tags appear below each recipe.
+
+![Example of tags in a recipe](/assets/readme_images/tags.png)
+
+Tags are edited in the admin panel.
+
+![Editing tags in the admin panel](/assets/readme_images/tagsadmin.png)
+
 ### Comment Moderation
-Comments must be approved by an administrator before they go live on the webpage.
+Like posts, comments must be approved by an administrator before they go live on the webpage.
 
 ![Examples of authorised and unauthorised comments.](/assets/readme_images/commentmoderation.png)
 
 ### Data Model
 Comments are created dependent on posts. Deleting a post will also delete all associated comments.
 
+This project uses a custom model to handle Tags on recipes. More details on this model [here.](#tags)
+
 ### CRUD Functionality
 #### Create
-Recipes can be created through a webform. However, upon submission, they must be set to "Published" by the superuser.
+Recipes can be created through a webform. However, upon submission, they must be set to "Published" by the superuser in the admin panel. This is a simple method to prevent spam and low-quality posts.
 
 #### Read
-As already documented.
+Users can read posts and comments.
 
 #### Update
 Recipes can be updated through a webform, provided the user that is logged in is the original author of that recipe. The link to update appears on any recipe page that belongs to the logged in user.
@@ -82,18 +139,6 @@ Thanks to the use of Bootstrap, the website is fully responsive to mobile device
 
 ![The page shown on a mobile screen.](/assets/readme_images/responsive.png)
 
-### Footer
-The page footer contains social media links and copyright information.
-
-![Page footer](/assets/readme_images/footer.png)
-
-### Tags
-Recipe tags are implemented with a custom many-to-many model. There are many tags and each tag can be applied to many recipes. Tags are called in the RecipeDetail view and then in the recipe_detail.html template. As there is the possibility of many tags, they must be iterated through in the template itself:
-
-    {% for tag in tags %}
-    {{ tag }}
-    {% endfor %}
-
 ## Design
 
 - I have used [this colour palette from Coolors](https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557) to ensure consistency across the site and related components.
@@ -103,10 +148,10 @@ Recipe tags are implemented with a custom many-to-many model. There are many tag
 
 - In addition, I used my own custom CSS file, to create smaller and more specific styling effects. ON occasion, I have applied styling to exising Bootstrap classes.
 
-## User Stories
+## Agile Development / User Stories
 I used User stories to guide development
 
-![User Stories](/assets/readme_images/user_stories.png)
+![User Stories](/assets/readme_images/agile.png)
 
 ## Accessibility
 
