@@ -223,9 +223,17 @@ The command to run automated tests is:
 
 ### Validator Testing
 
-- HTML validator
-- CSS validator
-- JS Hint
+#### HTML validator
+
+The site passes HTML Validation at https://validator.w3.org/nu/.
+
+![HTML Validation.](/assets/readme_images/htmlvalidation.png)
+
+#### CSS validator
+
+The site passes CSS Validation at https://jigsaw.w3.org/css-validator/.
+
+![CSS Validation.](/assets/readme_images/cssvalidation.png)
 
 #### Lighthouse
 
