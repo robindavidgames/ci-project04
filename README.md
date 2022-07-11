@@ -334,6 +334,10 @@ I installed Bootstrap using guidance from https://getbootstrap.com/docs/5.1/gett
 ## Credits
 - The basic structure of the website is inspired by the I Think Therefore I Blog tutorials. Parts of the page logic are also inspired by this and are marked as such in the comments.
 - Guidance for working with forms and CRUD functionality from: https://docs.djangoproject.com/en/4.0/topics/forms/
+- Navbar code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.1/components/navbar/#nav
+- Footer code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.1/examples/footers/
+- Index layout code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.1/examples/album/
+- Recipe detail layout code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.0/examples/blog/
 - All images are Public Domain or Creative Commons.
 - Salad placeholder image source: https://www.photosforclass.com/download/pb_2834549
 - Kid Friendly Grilled Skewers

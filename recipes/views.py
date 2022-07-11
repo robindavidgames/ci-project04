@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, get_list_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -33,7 +33,8 @@ class RecipeDetail(View):
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
-        # This line and understanding of many-to-many relationships with guidance from Tutor Support.
+        # This line and understanding of many-to-many relationships with
+        # guidance from Tutor Support.
         tags = recipe.recipetag_set.all()
         print(tags)
 

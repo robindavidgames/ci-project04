@@ -2,12 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-# Creating classes taken from I Think Therefore I Blog tutorial videos.
 
 # Status options when creating a recipe post.
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
+# Recipe class modified from I Think Therefore I Blog tutorial.
 class Recipe(models.Model):
     """
     Class for the main recipe posts.
@@ -42,6 +42,7 @@ class Recipe(models.Model):
         return self.likes.count()
 
 
+# Comment class modified from I Think Therefore I Blog tutorial.
 class Comment(models.Model):
     """
     Class for comments on each particular recipe.
@@ -66,6 +67,9 @@ class Comment(models.Model):
 
 
 class RecipeTag(models.Model):
+    """
+    Class for tags that can be applied to many recipies.
+    """
     tag_name = models.CharField(
         max_length=100,
         unique=True
