@@ -155,6 +155,10 @@ I used User stories to guide development
 
 ## Accessibility
 
+The entire site is text based, so should work well with screen readers. The exception to this is the external links in the footer, which are given an aria-label.
+
+The website uses high-contrast colours between background and text to maintain readability.
+
 ## Testing
 
 ### Manual Testing
