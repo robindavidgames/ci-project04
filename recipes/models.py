@@ -65,34 +65,6 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}."
 
 
-# class UserProfile(models.Model):
-#     """
-#     Class for user profile.
-#     """
-#     username = models.ForeignKey(
-#         User,
-#         on_delete=models.CASCADE,
-#         related_name="user_profile"
-#         )
-    # This needs to pull Recipe.author and if they == author, apply them.
-    # Also needs to be able to hold multiple keys...
-    # created_posts = models.ForeignKey(
-    #     Recipe,
-    #     on_delete=models.CASCADE,
-    #     related_name="user_posts",
-    #     blank=True
-    #     )
-    # liked_posts = models.ForeignKey(
-    #     Recipe,
-    #     on_delete=models.CASCADE,
-    #     related_name="liked_posts",
-    #     blank=True
-    #     )
-
-    # def __str__(self):
-    #     return self.username
-
-
 class RecipeTag(models.Model):
     tag_name = models.CharField(
         max_length=100,
@@ -101,6 +73,6 @@ class RecipeTag(models.Model):
     recipes = models.ManyToManyField(
         Recipe
         )
-    
+
     def __str__(self):
         return self.tag_name

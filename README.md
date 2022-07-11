@@ -22,9 +22,9 @@ Screenshot from ami.responsivedesign.is
         - [Default Recipe Image](#default-recipe-image)
     - [Likes](#likes)
     - [Comments](#comments)
-    - [Tags](#tags)
-    - [Footer](#footer)
     - [Comment Moderation](#comment-moderation)
+    - [Recipe Tags](#recipe-tags)
+    - [Footer](#footer)
     - [Data Model](#data-model)
     - [CRUD Functionality](#crud-functionality)
         - [Create](#create)
@@ -91,12 +91,12 @@ Users that are logged in can leave comments. All users can read comments.
 
 ![Example comments.](/assets/readme_images/comments.png)
 
-### Footer
-The page footer contains social media links and copyright information.
+### Comment Moderation
+Like posts, comments must be approved by an administrator before they go live on the webpage.
 
-![Page footer](/assets/readme_images/footer.png)
+![Examples of authorised and unauthorised comments.](/assets/readme_images/commentmoderation.png)
 
-### <a name="tags"></a>Recipe Tags
+### Recipe Tags
 Recipe tags are implemented with a custom many-to-many model. There are many tags and each tag can be applied to many recipes. Tags are called in the RecipeDetail view and then in the recipe_detail.html template. As there is the possibility of many tags, they must be iterated through in the template itself:
 
     {% for tag in tags %}
@@ -111,15 +111,15 @@ Tags are edited in the admin panel.
 
 ![Editing tags in the admin panel](/assets/readme_images/tagsadmin.png)
 
-### Comment Moderation
-Like posts, comments must be approved by an administrator before they go live on the webpage.
+### Footer
+The page footer contains social media links and copyright information.
 
-![Examples of authorised and unauthorised comments.](/assets/readme_images/commentmoderation.png)
+![Page footer](/assets/readme_images/footer.png)
 
 ### Data Model
 Comments are created dependent on posts. Deleting a post will also delete all associated comments.
 
-This project uses a custom model to handle Tags on recipes. More details on this model [here.](#tags)
+This project uses a custom model to handle Tags on recipes. More details on this model [here.](#recipe-tags)
 
 ### CRUD Functionality
 #### Create
@@ -164,13 +164,44 @@ I used User stories to guide development
 - The design is responsive to screen size.
 - The site has been tested on multiple browers (Firefox and Chrome) and multiple mobile platforms (Android and iOS).
 
-INSERT MARKDOWN TABLE TO MANUAL TESTING
+| Function | Expected Outcome | Actual Outcome |
+| --- | --- | --- |
+| **Any User** |  |  |
+| User can open main page. | Display header, index of posts, and footer. | As intended. |
+| User can click through paginated post previews. | Clicking through pagination shows additional posts. | As intended. |
+| User can follow external links in footer. | External links direct to social media. | As intended. |
+| User can click post detail. | Display post with title, image, likes, comments. | As intended. |
+| User can register new account. | Clicking Register in header allows user to fill in form for a new account. | As intended. |
+| Registration form is validated. | User must submit a username and a valid password. Email is optional. | As intended. |
+| Comment counter. | Comment counter shows current number of comments on the page. | As intended. |
+| Every page is styled. | CSS styles working for every page, including AllAuth pages. | As intended. |
+| **Registered Users** |  |  |
+| User can log in. | Clicking Log In allows user to sign into their account. | As intended. |
+| Alerts pop up. | Alerts for signing in and signing out pop up at the top of the page. | As intended. |
+| Alerts auto-dismiss. | Alerts dismiss themselves after 3 seconds. | As intended. |
+| **Logged In Users** |  |  |
+| User can post new recipe. | Clicking Post New Recipe allows the user to submit a form for a new recipe. | As intended. |
+| Slug is unique. | Submitting a non-unique slug invalidates the form. | As intended. |
+| Title, Slug, Content are required. | Submitting a form without these fields invalidates the form. | As intended. |
+| Posts can use default image. | Posts without an image will have a default image applied. | As intended. |
+| Submitted posts must be approved. | Superuser must approve the post on the admin site. | As intended. |
+| User Recipes have author tools. | Author tools for Edit/Delete appear on any post the user authored. | As intended. |
+| Author can edit post. | Clicking Edit Post allows the post author to change post details. | As intended. |
+| Author can delete post. | Clicking Delete Post allows the post author to delete the post. | As intended. |
+| User can post a comment. | Filling in the comment for will submit a comment under users current username. | As intended. |
+| Submitted comments must be approved | Superuser must approve the comment on the admin site. | As intended. |
+| User can like a post. | Clicking the heart icon will add a like. | As intended. |
+| User can unlike a post. | Clicking the heart icon a second time will remove a like. | As intended. |
+| Like counter shows current number of likes. | The like counter increments and deincrements when the user clicks the like icon. | As intended. |
+| User can log out. | Clicking Log Out allows the user to sign out. | As intended. |
 
 ### Automated Testing
 
 I created some automated tests for the project. Guidance for automated testing was taken from the [Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial05/) and further assistance was found in Tutor Support.
 
-See recipes/tests.py for more deatails on automated testing. In order to run automated tests:
+See recipes/tests.py for more deatails on automated testing. There are 8 tests, testing the validity of the Recipes model and two of the more important Views. 
+
+In order to run automated tests:
 
 - Comment out current database in settings.py
 - Then uncomment other database settings. 
