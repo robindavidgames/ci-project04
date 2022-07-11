@@ -179,6 +179,8 @@ The website uses high-contrast colours between background and text to maintain r
 | Registration form is validated. | User must submit a username and a valid password. Email is optional. | As intended. |
 | Comment counter. | Comment counter shows current number of comments on the page. | As intended. |
 | Every page is styled. | CSS styles working for every page, including AllAuth pages. | As intended. |
+| Site functions on different browswers. | Site functions on Chrome, Firefox, and Edge. | As expected. |
+| Site is responsive. | Site responds to smaller screen sizes and a variety of mobile screen sizes. | As expected. |
 | **Registered Users** |  |  |
 | User can log in. | Clicking Log In allows user to sign into their account. | As intended. |
 | Alerts pop up. | Alerts for signing in and signing out pop up at the top of the page. | As intended. |
