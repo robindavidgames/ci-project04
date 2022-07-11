@@ -22,9 +22,9 @@
             
             <!-- Image, depending on if one is uploaded. -->
             {% if "placeholder" in recipe.featured_image.url %}
-            <img src="https://res.cloudinary.com/robincloud/image/upload/v1655464161/placeholder_tlebqt.png" class="recipe-page-image">
+            <img src="https://res.cloudinary.com/robincloud/image/upload/v1655464161/placeholder_tlebqt.png" class="recipe-page-image" alt="">
             {% else %}
-            <img src=" {{ recipe.featured_image.url }}" class="recipe-page-image">
+            <img src=" {{ recipe.featured_image.url }}" class="recipe-page-image" alt="Image of the recipe.">
             {% endif %}
             
             <!-- Content of the recipe. -->

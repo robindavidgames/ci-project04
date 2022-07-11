@@ -14,11 +14,11 @@
                     {% if "placeholder" in recipe.featured_image.url %}
                     <a href="{% url 'recipe_detail' recipe.slug %}">
                         <img class="card-img-top"
-                            src="https://res.cloudinary.com/robincloud/image/upload/v1655464161/placeholder_tlebqt.png">
+                            src="https://res.cloudinary.com/robincloud/image/upload/v1655464161/placeholder_tlebqt.png" alt="">
                     </a>
                     {% else %}
                     <a href="{% url 'recipe_detail' recipe.slug %}">
-                        <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                        <img class="card-img-top" src=" {{ recipe.featured_image.url }}" alt="">
                     </a>
                     {% endif %}
                     <div class="card-body">
