@@ -226,7 +226,16 @@ The command to run automated tests is:
 - HTML validator
 - CSS validator
 - JS Hint
-- Lighthouse
+
+#### Lighthouse
+
+The site scores very well on Lighthouse for desktop.
+
+![Lighthouse for desktop.](/assets/readme_images/lighthousedesktop.png)
+
+It scores slightly less well on Lighthouse for mobile, primarily because the image files are too large and increase load time.
+
+![Lighthouse for mobile.](/assets/readme_images/lighthousemobile.png)
 
 ## Bugs
 
