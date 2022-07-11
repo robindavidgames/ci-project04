@@ -6,7 +6,7 @@ This project is built with Django, CSS, HTML, Python, and Javascript. It uses Dj
 
 **Click here to visit the [Eat Something](https://ci-eat-something.herokuapp.com/) website.**
 
-**ADD IMAGE OF RESPONSIVE SITE**
+![Am I Responsive screenshot](/assets/readme_images/amiresponsive.png)
 Screenshot from ami.responsivedesign.is
 
 ## Table of Contents
