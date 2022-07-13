@@ -68,6 +68,8 @@ An alert pops up when a user logs in or logs out. This alert times out after 3 s
 ### Registration
 Users can register new accounts on the website so that they may leave comments and like posts.
 
+![Sign up page](/assets/readme_images/signoutfixed3.png)
+
 ### Recipe Page
 This shows the recipe in more detail. Note that if the user is logged in and is the author of a given recipe, they have additional options to edit and delete the recipe.
 
@@ -120,9 +122,9 @@ The page footer contains social media links and copyright information.
 ![Page footer](/assets/readme_images/footer.png)
 
 ### Data Model
-Comments are created dependent on posts. Deleting a post will also delete all associated comments.
+Comments and tags are created dependent on posts. Deleting a post will also delete all associated comments and will remove the respective tags (although, the tags will still exist in relation to other posts).
 
-This project uses a custom model to handle Tags on recipes. More details on this model [here.](#recipe-tags)
+This project uses a custom model to handle tags on recipes. More details on this model [here.](#recipe-tags)
 
 ### CRUD Functionality
 #### Create
@@ -134,7 +136,7 @@ Recipes can be created through a webform. However, upon submission, they must be
 Users can read posts and comments.
 
 #### Update
-Recipes can be updated through a webform, provided the user that is logged in is the original author of that recipe. The link to update appears on any recipe page that belongs to the logged in user.
+Recipes can be updated through a webform, provided the user that is logged in is the original author of that recipe. The link to update appears on any recipe page that belongs to the logged in user. The update form is autofilled from the existing recipe content.
 
 ![Update functionality.](/assets/readme_images/crud-update.png)
 
@@ -155,27 +157,22 @@ Thanks to the use of Bootstrap, the website is fully responsive to mobile device
 
 - I used Bootstrap for most of this project, using guidance from [Bootstrap's Getting Started Documentation.](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
-- In addition, I used my own custom CSS file, to create smaller and more specific styling effects. ON occasion, I have applied styling to exising Bootstrap classes.
+- In addition, I used my own custom CSS file, to create smaller and more specific styling effects. On occasion, I have applied styling to exising Bootstrap classes.
 
 ## Agile Development / User Stories
-I used User stories to guide development
+I used User stories to guide development. The site was built using an agile methodology, working in small deliverable chunks. For instance, the tags model was left until the very end of the project, as this provides some value added, rather than being a core feature.
 
 ![User Stories](/assets/readme_images/agile.png)
 
 ## Accessibility
 
-The entire site is text based, so should work well with screen readers. The exception to this is the external links in the footer, which are given an aria-label.
+The entire site is text based, so should work well with screen readers. The exception to this is the external links in the footer, which are given an aria-label, and recipe images, which are given an alt text.
 
 The website uses high-contrast colours between background and text to maintain readability.
 
 ## Testing
 
 ### Manual Testing
-
-- The site functions as expected.
-- All internal and external links work.
-- The design is responsive to screen size.
-- The site has been tested on multiple browers (Firefox and Chrome) and multiple mobile platforms (Android and iOS).
 
 | Function | Expected Outcome | Actual Outcome |
 | --- | --- | --- |
@@ -212,9 +209,9 @@ The website uses high-contrast colours between background and text to maintain r
 
 ### Automated Testing
 
-I created some automated tests for the project. Guidance for automated testing was taken from the [Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial05/) and further assistance was found in Tutor Support.
+I created some automated tests for the project. Guidance for automated testing was taken from the [Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial05/) and further assistance was found in Tutor Support. Specific details of help received is documented in recipes/tests.py.
 
-See recipes/tests.py for more deatails on automated testing. There are 8 tests, testing the validity of the Recipes model and two of the more important Views. 
+There are 8 tests, testing the validity of the Recipes model and two of the more important Views. 
 
 In order to run automated tests:
 
