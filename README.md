@@ -1,8 +1,11 @@
 # Eat Something
-Eat Something is a website that allows an enduser to read family-friendly recipes, and engage with a community of users through post comments.
-This project is built with Django, CSS, HTML, Python, and Javascript. It uses Django to manage users, registration, etc. Of these users, there are two types:
-- A superuser that can post new recipes to the site and moderate comments.
-- A standard user that can browse the site, 'like' recipes, and post comments.
+Eat Something is a website that allows an enduser to read family-friendly recipes, and engage with a community of users through posting their own recipes and leaving comments.
+
+This project is built with Django, CSS, HTML, Python, and Javascript. It uses a custom model (for 'tagging' recipes) and models adapted from the I Think Therefore I Blog examples. It has C.R.U.D. functionality, allowing users to create, read, update, and delete recipe posts. It has both manual and automatic testing. The majority of styling is done through Bootstrap, though there is a custom CSS for for more specific styling.
+
+There are two types of users:
+- A superuser that can approve new recipe posts and comments.
+- A standard user that can browse the site, submit and update recipes, 'like' recipes, and post comments.
 
 **Click here to visit the [Eat Something](https://ci-eat-something.herokuapp.com/) website.**
 
