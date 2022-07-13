@@ -128,14 +128,20 @@ This project uses a custom model to handle Tags on recipes. More details on this
 #### Create
 Recipes can be created through a webform. However, upon submission, they must be set to "Published" by the superuser in the admin panel. This is a simple method to prevent spam and low-quality posts.
 
+![Create functionality.](/assets/readme_images/crud-create.png)
+
 #### Read
 Users can read posts and comments.
 
 #### Update
 Recipes can be updated through a webform, provided the user that is logged in is the original author of that recipe. The link to update appears on any recipe page that belongs to the logged in user.
 
+![Update functionality.](/assets/readme_images/crud-update.png)
+
 #### Delete
 Recipes can be deleted through a webform, provided the user that is logged in is the original author of that recipe. The link to delete appears on any recipe page that belongs to the logged in user.
+
+![Delete functionality.](/assets/readme_images/crud-delete.png)
 
 ### Responsive Design
 Thanks to the use of Bootstrap, the website is fully responsive to mobile devices.
@@ -247,6 +253,12 @@ The site scores very well on Lighthouse for desktop.
 It scores slightly less well on Lighthouse for mobile, primarily because the image files are too large and increase load time.
 
 ![Lighthouse for mobile.](/assets/readme_images/lighthousemobile.png)
+
+#### Pep8
+
+The Python code passes Pep8 validation.
+
+![Pep8 Validation.](/assets/readme_images/pep8validation.png)
 
 ## Bugs
 

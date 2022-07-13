@@ -3,6 +3,7 @@ from .models import Comment, Recipe
 
 # Modified from I Think Therefore I Blog
 
+
 class CommentForm(forms.ModelForm):
     """
     Form for leaving comments on recipes.
