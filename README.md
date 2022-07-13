@@ -260,13 +260,13 @@ The Python code passes Pep8 validation.
 ## Bugs
 
 ### Incorrect Model Variables
-Unable to post comments with django reporting an error about a null field. Turns out I had mistyped a variable in my model, which I was then not correctly referring to in my view.
+I was unable to post comments on the site and django reported an error regarding a null field. I had mistyped a variable in my comments model, which meant that the respective view could not find the appropriate information.
 
 ### Custom CSS Not Working
 I couldn't get my base.html file to recognise my style.css file. Referring to my own styles did not update the contents of the page. I searched through Stack Overflow, Slack, Student Support and the answer was... I needed to clear my cache!
 
 ### Editing Bootstrap Classes in CSS
-Bootstrap was applying colours to elements that did not match the colour scheme of my site and attempts to fix this were inelegant. After reading [this StackOverflow post](https://stackoverflow.com/questions/20721248/how-can-i-override-bootstrap-css-styles), I understood that I could reference the Boostrap class names directly in my style.css file. Thus, I added this piece of code:
+Bootstrap was applying colours to elements that did not match the colour scheme of my site and attempts to fix this were inelegant. After reading [this StackOverflow post](https://stackoverflow.com/questions/20721248/how-can-i-override-bootstrap-css-styles), I understood that I could reference the Boostrap class names directly in my style.css file. Thus, I added several pieces of CSS that referred to bootstrap classes, such as this:
 
     .btn-primary {
         background-color: red;
@@ -300,13 +300,9 @@ Upon which I could begin to style them as normal, with bootstrap, CSS, etc.
 
 When the project was finished, I found that the deployed site didn't work. After talking with Student Support and looking in the Heroku logs, we discovered a spelling mistake in my Heroku config vars!
 
-#### Broken Static Files
-
-On the deployed site, I noticed that my static files were no longer working - my CSS file and favicon.
-
 ### Updating and Deleting Posts
 
-When creating code to update a recipe, I create a class view with GET and POST methods, in order to create a form, prepopulate it with existing content, and then allow the user to submit the corrections. However, the form continually didn't work. Upon submission, it would check is_valid, and the check would fail because the slug needed to be unique. However, the slug was never unique because the original recipe that is being edited has the same slug. This bug persisted for some time until I went to student support, who were about to show me the UpdateView class, as explained [here](https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/).
+When creating code to update a recipe, I create a class view with GET and POST methods, in order to create a form, prepopulate it with existing content, and then allow the user to submit the corrections. However, the form continually didn't work. Upon submission, it would check is_valid, and the check would fail because the slug needed to be unique. However, the slug was never unique because the original recipe that is being edited has the same slug. This bug persisted for some time until I went to Student Support, who were about to show me the UpdateView class, as explained [here](https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/).
 
 This allowed me to reduce 60 lines of buggy code to:
 
@@ -320,29 +316,27 @@ It also allowed me to use DeleteView to achieve something similar with the code 
 
 ## Setup and Deployment
 
-To setup the project, I followed the example in the I Think Therefore I Blog module.
-
 Django was installed at beginning of project using the command: 
 
     pip3 install Django==3.2 gunicorn
 
-Deployment at the start of the project following I Think Therefore I Blog example. Refer to the [cheatsheet](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit) for further details..
+Deployment at the start of the project following I Think Therefore I Blog example. Refer to the [cheatsheet](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit) for further details.
 
-1. Create env.py to hold secret keys
-2. Hook up Heroku and ensure that it is holding my secret key and database URL
-3. Connect Cloudinary and ensure those setting are also in the Heroku variables
+1. Create env.py to hold secret keys.
+2. Hook up Heroku and ensure that it is holding my secret key and database URL.
+3. Connect Cloudinary and ensure those setting are also in the Heroku variables.
 4. In Heroku, connect to the GitPod respository for this project and click deploy for the main branch.
-5. THEN BUILD PROJECT
-6. before final deployment, make sure the debug flag in settings.py is set to false.
-7. Also X_FRAME_OPTIONS = 'SAMEORIGIN' so that summernote can run in the deployed version.
-8. remove DISABLE_COLLECTSTATIC config var in Heroku.
-9. Deploy branch again in Heroku.
 
+At this point, I built the project. Running "git push" would cause the deployed site to automatically update.
+
+5. Before final deployment, I made sure the 'Debug' flag in settings.py was set to 'False'.
+6. Also, in the same file, ensure that X_FRAME_OPTIONS = 'SAMEORIGIN' so that summernote can run in the deployed version.
+7. Remove DISABLE_COLLECTSTATIC config var in Heroku.
+8. Deploy branch again in Heroku.
 
 From the I Think Therefore I Blog tutorial, I installed Summernote to provide a WYSIWYG editor in Django dashboard. Using the command:
 
     pip3 install django-summernote
-
 
 I installed Bootstrap using guidance from https://getbootstrap.com/docs/5.1/getting-started/introduction/
 
@@ -368,11 +362,11 @@ I installed Bootstrap using guidance from https://getbootstrap.com/docs/5.1/gett
 
 ## Credits
 - The basic structure of the website is inspired by the I Think Therefore I Blog tutorials. Parts of the page logic are also inspired by this and are marked as such in the comments.
-- Guidance for working with forms and CRUD functionality from: https://docs.djangoproject.com/en/4.0/topics/forms/
-- Navbar code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.1/components/navbar/#nav
-- Footer code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.1/examples/footers/
-- Index layout code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.1/examples/album/
-- Recipe detail layout code modified from a Bootstrap template found here: https://getbootstrap.com/docs/5.0/examples/blog/
+- Guidance for working with forms and CRUD functionality from [DjangoProject](https://docs.djangoproject.com/en/4.0/topics/forms/).
+- Navbar code modified from a Bootstrap template found on [GetBootstrap](https://getbootstrap.com/docs/5.1/components/navbar/#nav).
+- Footer code modified from a Bootstrap template found on [GetBootstrap Examples](https://getbootstrap.com/docs/5.1/examples/footers/).
+- Index layout code modified from a Bootstrap template found on [GetBootstrap Examples](https://getbootstrap.com/docs/5.1/examples/album/).
+- Recipe detail layout code modified from a Bootstrap template found on [GetBootstrap Examples](https://getbootstrap.com/docs/5.0/examples/blog/).
 - All images are Public Domain or Creative Commons.
 - Salad placeholder image source: https://www.photosforclass.com/download/pb_2834549
 - Kid Friendly Grilled Skewers
