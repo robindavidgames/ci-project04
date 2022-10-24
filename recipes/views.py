@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Recipe, User, RecipeTag
@@ -106,60 +106,74 @@ class RecipeLike(View):
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
-class RecipePost(View):
-    def get(self, request, *args, **kwargs):
-        """
-        Get the post recipe form
-        """
+class RecipePost(CreateView):
+    model = Recipe
+    fields = [
+        'title',
+        'slug',
+        'content',
+        'featured_image',
+        'excerpt',
+        'status',
+        'author',
+        ]
+    success_url = '/'
 
-        return render(
-            request,
-            "new_post.html",
-            {
-                "recipe_form": RecipeForm()
-            },
-        )
 
-    def post(self, request, *args, **kwargs):
-        """
-        Allow for submission of a recipe.
-        """
-        recipe_form = RecipeForm(data=request.POST)
-        if recipe_form.is_valid():
-            recipe_form.instance.author = request.user
-            recipe = recipe_form.save(commit=False)
-            recipe.save()
-            if recipe_form.instance.status == 1:
-                messages.success(
-                    request,
-                    'Your recipe post was successfully published!')
-            else:
-                messages.success(
-                    request,
-                    'Your recipe post was successfully saved as a draft.')
-        else:
-            recipe_form = RecipeForm()
-            messages.warning(request, 'Form error - the post was not created.')
+# class RecipePost(View):
+#     def get(self, request, *args, **kwargs):
+        # """
+        # Get the post recipe form
+        # """
 
-        return render(
-            request,
-            "index.html",
-            {
-                "recipe_form": recipe_form,
-            },
-        )
+        # return render(
+        #     request,
+        #     "new_post.html",
+        #     {
+        #         "recipe_form": RecipeForm()
+        #     },
+        # )
+
+    # def post(self, request, *args, **kwargs):
+        # """
+        # Allow for submission of a recipe.
+        # """
+        # recipe_form = RecipeForm(data=request.POST)
+        # if recipe_form.is_valid():
+        #     recipe_form.instance.author = request.user
+        #     recipe = recipe_form.save(commit=False)
+        #     recipe.save()
+        #     if recipe_form.instance.status == 1:
+        #         messages.success(
+        #             request,
+        #             'Your recipe post was successfully published!')
+        #     else:
+        #         messages.success(
+        #             request,
+        #             'Your recipe post was successfully saved as a draft.')
+        # else:
+        #     recipe_form = RecipeForm()
+        #     messages.warning(request, 'Form error - the post was not created.')
+
+        # return render(
+        #     request,
+        #     "index.html",
+        #     {
+        #         "recipe_form": recipe_form,
+        #     },
+        # )
 
 
 # Created with help from Tutor Support.
 class EditRecipe(UpdateView):
     model = Recipe
     form_class = RecipeForm
-    template_name = 'edit_post.html'
+    template_name = 'recipes/edit_post.html'
     success_url = '/'
 
 
 class RecipeDelete(DeleteView):
     model = Recipe
     form_class = RecipeForm
-    template_name = 'delete_post.html'
+    template_name = 'recipes/delete_post.html'
     success_url = '/'
