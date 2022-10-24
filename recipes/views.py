@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from .models import Recipe, User, RecipeTag
 from .forms import CommentForm, RecipeForm
 
@@ -128,8 +129,17 @@ class RecipePost(View):
             recipe_form.instance.author = request.user
             recipe = recipe_form.save(commit=False)
             recipe.save()
+            if recipe_form.instance.status == 1:
+                messages.success(
+                    request,
+                    'Your recipe post was successfully published!')
+            else:
+                messages.success(
+                    request,
+                    'Your recipe post was successfully saved as a draft.')
         else:
             recipe_form = RecipeForm()
+            messages.warning(request, 'Form error - the post was not created.')
 
         return render(
             request,
