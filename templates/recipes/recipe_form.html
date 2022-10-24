@@ -11,9 +11,7 @@
             <p>Posting as: {{ user.username }}</p>
             <form method="post" style="margin-top: 1.3em;">
                 {% csrf_token %}
-                <!-- {{ form.as_p }} -->
                 {% crispy form %}
-                <input type="submit" value="Submit">
             </form>
             {% else %}
             <p>You must be logged in to post a new recipe.</p>
