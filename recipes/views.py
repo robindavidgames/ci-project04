@@ -185,7 +185,11 @@ class EditRecipe(SuccessMessageMixin, UpdateView):
     form_class = RecipeForm
     template_name = 'recipes/edit_post.html'
     success_message = "Post was edited successfully."
-    success_url = '/'
+    # success_url = '/recipe_detail'
+
+    def get_success_url(self):
+        slug = self.kwargs['slug']
+        return reverse('recipe_detail', kwargs={'slug': slug})
 
 
 class RecipeDelete(SuccessMessageMixin, DeleteView):
@@ -199,7 +203,7 @@ class RecipeDelete(SuccessMessageMixin, DeleteView):
     success_message = "Post was deleted successfully."
     success_url = '/'
 
-    # This code fix taken from 
+    # This code fix taken from
     # https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
