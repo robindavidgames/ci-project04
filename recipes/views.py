@@ -116,12 +116,13 @@ class RecipePost(SuccessMessageMixin, CreateView):
         'featured_image',
         'excerpt',
         'status',
-        'author',
+        # 'author',
         ]
 
-    # def form_valid(self, form):
-    #     form.instance.author = request.user
-    #     return super(RecipePost, self).form_valid(form)
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        # return super(RecipePost, self).form_valid(form)
+        return super().form_valid(form)
 
     success_message = "Post was created successfully."
     success_url = '/'
