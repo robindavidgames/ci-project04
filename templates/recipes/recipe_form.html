@@ -10,9 +10,9 @@
             <h3>Post a New Recipe:</h3>
             <p>Posting as: {{ user.username }}</p>
             <form method="post" style="margin-top: 1.3em;">
-                <!-- {{ recipe_form | crispy }} -->
                 {% csrf_token %}
-                {{ form.as_p }}
+                <!-- {{ form.as_p }} -->
+                {% crispy form %}
                 <input type="submit" value="Submit">
             </form>
             {% else %}

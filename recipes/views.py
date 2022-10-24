@@ -4,6 +4,8 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 from .models import Recipe, User, RecipeTag
 from .forms import CommentForm, RecipeForm
 
@@ -120,8 +122,19 @@ class RecipePost(SuccessMessageMixin, CreateView):
         'featured_image',
         'excerpt',
         'status',
-        # 'author',
         ]
+
+    # This function to enable crispy forms. 
+    # Taken from https://stackoverflow.com/questions/23885036/how-to-use-createview-with-crispy-forms-in-django
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.helper = FormHelper()
+        form.helper.add_input(Submit(
+            'submit',
+            'Create',
+            css_class='btn-primary'
+            ))
+        return form
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -129,6 +142,10 @@ class RecipePost(SuccessMessageMixin, CreateView):
 
     success_message = "Post was created successfully."
     success_url = '/'
+
+    # def get_success_url(self):
+    #     slug = form.instance.slug
+    #     return reverse('recipe_detail', kwargs={'slug': slug})
 
 
 # class RecipePost(View):
@@ -185,8 +202,8 @@ class EditRecipe(SuccessMessageMixin, UpdateView):
     form_class = RecipeForm
     template_name = 'recipes/edit_post.html'
     success_message = "Post was edited successfully."
-    # success_url = '/recipe_detail'
 
+    # Adapted from https://stackoverflow.com/questions/11027996/success-url-in-updateview-based-on-passed-value
     def get_success_url(self):
         slug = self.kwargs['slug']
         return reverse('recipe_detail', kwargs={'slug': slug})
