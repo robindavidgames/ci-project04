@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Recipe, User, RecipeTag
 from .forms import CommentForm, RecipeForm
 
@@ -106,7 +107,7 @@ class RecipeLike(View):
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
-class RecipePost(CreateView):
+class RecipePost(SuccessMessageMixin, CreateView):
     model = Recipe
     fields = [
         'title',
@@ -117,6 +118,12 @@ class RecipePost(CreateView):
         'status',
         'author',
         ]
+
+    # def form_valid(self, form):
+    #     form.instance.author = request.user
+    #     return super(RecipePost, self).form_valid(form)
+
+    success_message = "Post was created successfully."
     success_url = '/'
 
 
