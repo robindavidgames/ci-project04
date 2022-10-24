@@ -314,6 +314,9 @@ This allowed me to reduce 60 lines of buggy code to:
 
 It also allowed me to use DeleteView to achieve something similar with the code for deleting a recipe.
 
+### Including messages in DeleteView
+The class based views for CreateView and EditView both allowed the use of SuccessMessageMixin, to post messages to the user. However, in DeleteView, the messages were not shown. According to [this Stack Overflow thread](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown), this is because the DeleteView doesn't have a form_valid to trigger the message. That thread also provided an alternative method to trigger the message.
+
 ## Setup and Deployment
 
 Django was installed at beginning of project using the command: 
