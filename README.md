@@ -317,6 +317,11 @@ It also allowed me to use DeleteView to achieve something similar with the code 
 ### Including messages in DeleteView
 The class based views for CreateView and EditView both allowed the use of SuccessMessageMixin, to post messages to the user. However, in DeleteView, the messages were not shown. According to [this Stack Overflow thread](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown), this is because the DeleteView doesn't have a form_valid to trigger the message. That thread also provided an alternative method to trigger the message.
 
+### Images not Uploading to Cloudinary
+WHen creating a new post through the front-end form, images were not uploading to Cloudinary, and so each new recipe was showing the "no-image" placeholder image. After a LOT of debugging, I had simple forgot to add the following to the form HTML:
+
+    enctype="multipart/form-data"
+
 ## Setup and Deployment
 
 Django was installed at beginning of project using the command: 

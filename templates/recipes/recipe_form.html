@@ -9,7 +9,7 @@
             {% if user.is_authenticated %}
             <h3>Post a New Recipe:</h3>
             <p>Posting as: {{ user.username }}</p>
-            <form method="post" style="margin-top: 1.3em;">
+            <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% crispy form %}
             </form>
