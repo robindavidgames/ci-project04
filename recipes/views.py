@@ -124,7 +124,7 @@ class RecipePost(SuccessMessageMixin, CreateView):
         'status',
         ]
 
-    # This function to enable crispy forms. 
+    # This function to enable crispy forms.
     # Taken from https://stackoverflow.com/questions/23885036/how-to-use-createview-with-crispy-forms-in-django
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
@@ -142,54 +142,6 @@ class RecipePost(SuccessMessageMixin, CreateView):
 
     success_message = "Post was created successfully."
     success_url = '/'
-
-    # def get_success_url(self):
-    #     slug = form.instance.slug
-    #     return reverse('recipe_detail', kwargs={'slug': slug})
-
-
-# class RecipePost(View):
-#     def get(self, request, *args, **kwargs):
-        # """
-        # Get the post recipe form
-        # """
-
-        # return render(
-        #     request,
-        #     "new_post.html",
-        #     {
-        #         "recipe_form": RecipeForm()
-        #     },
-        # )
-
-    # def post(self, request, *args, **kwargs):
-        # """
-        # Allow for submission of a recipe.
-        # """
-        # recipe_form = RecipeForm(data=request.POST)
-        # if recipe_form.is_valid():
-        #     recipe_form.instance.author = request.user
-        #     recipe = recipe_form.save(commit=False)
-        #     recipe.save()
-        #     if recipe_form.instance.status == 1:
-        #         messages.success(
-        #             request,
-        #             'Your recipe post was successfully published!')
-        #     else:
-        #         messages.success(
-        #             request,
-        #             'Your recipe post was successfully saved as a draft.')
-        # else:
-        #     recipe_form = RecipeForm()
-        #     messages.warning(request, 'Form error - the post was not created.')
-
-        # return render(
-        #     request,
-        #     "index.html",
-        #     {
-        #         "recipe_form": recipe_form,
-        #     },
-        # )
 
 
 # Created with help from Tutor Support.
