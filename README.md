@@ -61,7 +61,7 @@ The nav bar always displays at the top of the page and lets the user return home
 ![Navigation with logout button](/assets/readme_images/navlogout.png)
 
 ### Alerts
-An alert pops up when a user logs in or logs out. This alert times out after 3 seconds.
+An alert pops up when a user logs in or logs out, posts a new recipe, edits a recipe, and deletes a recipe. This alert times out after 3 seconds.
 
 ![Logout alert](/assets/readme_images/alert.png)
 
